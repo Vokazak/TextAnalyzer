@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ru.vokazak.controllers.MainSceneController">
+   <children>
+      <Button fx:id="openFileButton" layoutX="26.0" layoutY="332.0" mnemonicParsing="false" onAction="#openFileButtonClicked" prefHeight="32.0" prefWidth="257.0" text="Открыть файл" />
+      <Label layoutX="34.0" layoutY="26.0" text="Содержимое текстового файла" />
+      <TextArea fx:id="textArea" layoutX="25.0" layoutY="56.0" onMouseClicked="#textAreaClicked" prefHeight="252.0" prefWidth="257.0" />
+      <TableView fx:id="tableView" layoutX="318.0" layoutY="56.0" prefHeight="252.0" prefWidth="257.0" />
+   </children>
+</AnchorPane>
