@@ -6,9 +6,9 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
 public class TextAnalyzer {
@@ -32,11 +32,16 @@ public class TextAnalyzer {
     }
 
     public List<String> extractWordsFromString(String str) {
-        return Arrays.asList(str
-                .replaceAll("[^a-zA-ZА-Яа-яЁё0-9]", " ")
-                .toLowerCase()
-                .split("[ ]+")
-        );
+
+        Pattern pattern = Pattern.compile("[a-zA-ZА-Яа-яЁё0-9]+(?:-[a-zA-ZА-Яа-яЁё0-9]+)*");
+        Matcher matcher = pattern.matcher(str.toLowerCase());
+
+        List<String> result = new ArrayList<>();
+        while (matcher.find()) {
+            result.add(matcher.group());
+        }
+
+        return result;
     }
 
     public Map<String, Integer> countWordFrequency(List<String> words) {

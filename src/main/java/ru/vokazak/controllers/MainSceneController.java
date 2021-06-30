@@ -23,14 +23,13 @@ import static javafx.collections.FXCollections.observableList;
 
 public class MainSceneController implements Initializable {
 
-    private FileChooser fileChooser;
+    private final FileChooser fileChooser = new FileChooser();
     private final TextAnalyzer textAnalyzer = new TextAnalyzer();
 
     private Set<Entry<String, Integer>> wordFrequencySet;
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fileChooser = new FileChooser();
         fileChooser.setTitle("Select document");
         fileChooser.getExtensionFilters().addAll(
                 new FileChooser.ExtensionFilter("TXT", "*.txt"),
